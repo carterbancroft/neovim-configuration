@@ -26,3 +26,11 @@ vim.cmd("set colorcolumn=80")
 
 -- Change the leader key from the default ('\') to space
 vim.g.mapleader = " "
+
+-- Autocommand to run npx prettier on save for JavaScript files
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "*.prisma",
+  callback = function()
+    vim.cmd("!npx prisma format")
+  end,
+})
