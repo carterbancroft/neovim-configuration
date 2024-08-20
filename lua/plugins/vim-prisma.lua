@@ -1,4 +1,4 @@
 -- Prisma syntax highlighting
 return {
-	"prisma/vim-prisma",
+  "prisma/vim-prisma",
 }
