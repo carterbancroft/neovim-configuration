@@ -26,6 +26,15 @@ return {
             require("telescope.themes").get_dropdown({}),
           },
         },
+        defaults = {
+          vimgrep_arguments = {
+            "--ignore", -- Ignore files specified in .gitignore
+            "--hidden", -- Search hidden files
+          },
+          file_ignore_patterns = {
+            "node_modules",
+          },
+        },
       })
       require("telescope").load_extension("ui-select")
     end,

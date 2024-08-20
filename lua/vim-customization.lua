@@ -27,10 +27,20 @@ vim.cmd("set colorcolumn=80")
 -- Change the leader key from the default ('\') to space
 vim.g.mapleader = " "
 
+-- If an error message is scrolled off the edge of the screen, hit <leader>e to open it in all it's glory
+vim.api.nvim_set_keymap("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", { noremap = true, silent = true })
+
+-- Show white space by hitting <leader>l
+vim.api.nvim_set_keymap("n", "<leader>l", ":set list!<CR>", { noremap = true, silent = true })
+
 -- Autocommand to run npx prettier on save for JavaScript files
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = "*.prisma",
-  callback = function()
-    vim.cmd("!npx prisma format")
-  end,
-})
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+--   pattern = "*.prisma",
+--   callback = function()
+--     vim.cmd("!npx prisma format")
+--   end,
+-- })
+
+-- ReloadConfig command for reloading all nvim configuration
+-- This isn't supported by lazy.nvim, hence why it's commented out.
+-- vim.api.nvim_create_user_command("ReloadConfig", "luafile $MYVIMRC", {})

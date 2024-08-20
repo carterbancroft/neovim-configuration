@@ -9,7 +9,9 @@ return {
       -- These are ultimately installed in the Mason UI
       sources = {
         -- Lua
-        null_ls.builtins.formatting.stylua,
+        null_ls.builtins.formatting.stylua.with({
+          extra_args = { "--indent-type", "Spaces", "--indent-width", "2" },
+        }),
 
         -- JavaScript
         null_ls.builtins.formatting.prettier,
