@@ -33,6 +33,20 @@ vim.api.nvim_set_keymap("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<
 -- Show white space by hitting <leader>l
 vim.api.nvim_set_keymap("n", "<leader>l", ":set list!<CR>", { noremap = true, silent = true })
 
+-- Yank to clipboard so I can paste into something not nvim
+vim.api.nvim_set_keymap("v", "<leader>y", '"+y', { noremap = true, silent = true })
+
+vim.filetype.add({
+  extension = { slim = "slim" },
+})
+
+-- Handlebars special case syntax highlighting
+vim.filetype.add({
+  extension = {
+    hbs = "html", -- This will use HTML highlighting
+  },
+})
+
 -- Autocommand to run npx prettier on save for JavaScript files
 -- vim.api.nvim_create_autocmd("BufWritePost", {
 --   pattern = "*.prisma",

@@ -24,7 +24,7 @@ return {
           -- "eslint",
           -- "html",
           -- "jsonls",
-          "tsserver",
+          "ts_ls",
           "prismals",
           "pyright",
           -- "sqlls",
@@ -52,7 +52,7 @@ return {
       -- lspconfig.eslint.setup({})
       -- lspconfig.html.setup({})
       -- lspconfig.jsonls.setup({})
-      lspconfig.tsserver.setup({
+      lspconfig.ts_ls.setup({
         capabilities = capabilities,
       })
       lspconfig.prismals.setup({
