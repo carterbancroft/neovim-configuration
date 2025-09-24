@@ -16,17 +16,23 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
+        -- I disabled all of these because, I think, having these LSPs here and
+        -- having them down in the next section with `setup` calls was making
+        -- it so there are duplicate LSPs running in the case of the ones here.
+        -- If at some point I need to re-setup, it'll be worthwhile to figure
+        -- out how to just get them to auto install instead of manually having
+        -- to do it through the Mason ui.
         ensure_installed = {
-          "lua_ls",
+          -- "lua_ls",
           -- "cssls",
           -- "dockerls",
           -- "docker_compose_language_service",
           -- "eslint",
           -- "html",
           -- "jsonls",
-          "ts_ls",
-          "prismals",
-          "pyright",
+          -- "ts_ls",
+          -- "prismals",
+          -- "pyright",
           -- "sqlls",
         },
       })
@@ -54,6 +60,11 @@ return {
       -- lspconfig.jsonls.setup({})
       lspconfig.ts_ls.setup({
         capabilities = capabilities,
+        on_attach = function(client, bufnr)
+          -- Disable ts_ls formatting, let prettier handle it via none-ls
+          client.server_capabilities.documentFormattingProvider = false
+          client.server_capabilities.documentRangeFormattingProvider = false
+        end,
       })
       lspconfig.prismals.setup({
         capabilities = capabilities,
