@@ -47,6 +47,13 @@ vim.filetype.add({
   },
 })
 
+-- EJS template syntax highlighting
+vim.filetype.add({
+  extension = {
+    ejs = "embedded_template",
+  },
+})
+
 -- Autocommand to run npx prettier on save for JavaScript files
 -- vim.api.nvim_create_autocmd("BufWritePost", {
 --   pattern = "*.prisma",

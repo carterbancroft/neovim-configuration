@@ -15,7 +15,7 @@ return {
     -- vim-customization.lua
 
     config.setup({
-      ensure_installed = { "lua", "javascript", "tsx", "python", "html", "css", "bash", "pug" },
+      ensure_installed = { "lua", "javascript", "tsx", "python", "html", "css", "bash", "pug", "embedded_template" },
       highlight = { enable = true },
       indent = { enable = true },
     })
